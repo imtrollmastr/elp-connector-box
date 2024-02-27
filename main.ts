@@ -23,7 +23,7 @@ function shutdown () {
 input.onButtonPressed(Button.AB, function () {
     if (is_stopped == false) {
         radio.sendString("" + message3 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username + " sent " + message3 + " to " + targetuser))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message3 + " to " + targetuser_full))
         basic.showLeds(`
             . . . . .
             . . . . #
@@ -43,7 +43,7 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     if (is_stopped == false) {
         radio.sendString("" + message2 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username + " sent " + message2 + " to " + targetuser))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message2 + " to " + targetuser_full))
         basic.showLeds(`
             . . . . .
             . . . . #
@@ -71,9 +71,13 @@ let message2 = ""
 let message1 = ""
 let targetuser = ""
 let username = ""
+let targetuser_full = ""
+let username_full = ""
 let teacher_mode = false
-username = "Jo Hang Johann LO (3019011)"
-targetuser = "Josette Yeuk Kuk YAM (3120002)"
+username_full = "Jo Hang Johann LO (3019011)"
+targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
+username = "imtrollmastr"
+targetuser = "J2STARWARSGIRL"
 message1 = "Hi!"
 message2 = "How are you?"
 message3 = "Great!"
