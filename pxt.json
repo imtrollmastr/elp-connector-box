@@ -7,7 +7,13 @@
         "microphone": "*",
         "datalogger": "*",
         "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.7.5"
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.5",
+        "pxt-morse": "github:bsiever/pxt-morse#v2.0.0",
+        "power": "github:microbit-foundation/pxt-microbit-v2-power#v0.2.3",
+        "audio-recording": "*",
+        "linebeacon": "github:pizayanz/pxt-linebeacon#v0.0.14",
+        "pxt-faces": "github:grandpabond/pxt-faces#v1.1.0",
+        "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6"
     },
     "files": [
         "main.blocks",
