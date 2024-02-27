@@ -2,6 +2,13 @@ input.onButtonPressed(Button.A, function () {
     if (is_stopped == false) {
         radio.sendString("" + message1 + " - " + username)
         datalogger.log(datalogger.createCV("", "" + username + " sent " + message1 + " to " + targetuser))
+        basic.showLeds(`
+            . . . . .
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            `)
     } else {
     	
     }
@@ -15,6 +22,13 @@ input.onButtonPressed(Button.AB, function () {
     if (is_stopped == false) {
         radio.sendString("" + message3 + " - " + username)
         datalogger.log(datalogger.createCV("", "" + username + " sent " + message3 + " to " + targetuser))
+        basic.showLeds(`
+            . . . . .
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            `)
     } else {
     	
     }
@@ -26,6 +40,13 @@ input.onButtonPressed(Button.B, function () {
     if (is_stopped == false) {
         radio.sendString("" + message2 + " - " + username)
         datalogger.log(datalogger.createCV("", "" + username + " sent " + message2 + " to " + targetuser))
+        basic.showLeds(`
+            . . . . .
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            `)
     } else {
     	
     }
