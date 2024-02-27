@@ -82,4 +82,16 @@ message1 = "Hi!"
 message2 = "How are you?"
 message3 = "Great!"
 let ms_screentime = 900000
+let time_used = 0
+let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
 radio.setGroup(66)
+loops.everyInterval(60000, function () {
+    time_used += 1
+    strip.showBarGraph(time_used, 255)
+    if (time_used == 15) {
+        basic.clearScreen()
+        basic.showString("Locked due to screen time.")
+    } else {
+    	
+    }
+})
