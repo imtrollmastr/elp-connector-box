@@ -9,6 +9,8 @@ input.onButtonPressed(Button.A, function () {
             # . # . .
             . # . . .
             `)
+        basic.pause(100)
+        basic.clearScreen()
     } else {
     	
     }
@@ -29,6 +31,8 @@ input.onButtonPressed(Button.AB, function () {
             # . # . .
             . # . . .
             `)
+        basic.pause(100)
+        basic.clearScreen()
     } else {
     	
     }
@@ -47,6 +51,8 @@ input.onButtonPressed(Button.B, function () {
             # . # . .
             . # . . .
             `)
+        basic.pause(100)
+        basic.clearScreen()
     } else {
     	
     }
@@ -65,11 +71,11 @@ let message2 = ""
 let message1 = ""
 let targetuser = ""
 let username = ""
+let teacher_mode = false
 username = "Jo Hang Johann LO (3019011)"
 targetuser = "Josette Yeuk Kuk YAM (3120002)"
 message1 = "Hi!"
 message2 = "How are you?"
 message3 = "Great!"
 let ms_screentime = 900000
-let teacher_mode = false
 radio.setGroup(66)
