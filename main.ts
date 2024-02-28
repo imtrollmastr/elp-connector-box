@@ -9,12 +9,17 @@ input.onButtonPressed(Button.A, function () {
             # . # . .
             . # . . .
             `)
-        basic.pause(100)
+        basic.pause(1000)
         basic.clearScreen()
+        create_face()
     } else {
     	
     }
 })
+function create_face () {
+    faces.showFace(faces.Eyes.Open, faces.Mouth.Grin)
+    faces.blink(5000)
+}
 function shutdown () {
     basic.clearScreen()
     basic.showIcon(IconNames.No)
@@ -31,8 +36,9 @@ input.onButtonPressed(Button.AB, function () {
             # . # . .
             . # . . .
             `)
-        basic.pause(100)
+        basic.pause(1000)
         basic.clearScreen()
+        create_face()
     } else {
     	
     }
@@ -51,21 +57,31 @@ input.onButtonPressed(Button.B, function () {
             # . # . .
             . # . . .
             `)
-        basic.pause(100)
+        basic.pause(1000)
         basic.clearScreen()
+        create_face()
     } else {
     	
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     if (is_stopped == true) {
-        basic.clearScreen()
-        is_stopped = false
+        if (shutdown_by_time == true) {
+        	
+        } else {
+            basic.clearScreen()
+            is_stopped = false
+        }
     } else {
-        shutdown()
+        if (shutdown_by_time == true) {
+        	
+        } else {
+            shutdown()
+        }
     }
 })
 let is_stopped = false
+let shutdown_by_time = false
 let message3 = ""
 let message2 = ""
 let message1 = ""
@@ -83,14 +99,16 @@ message2 = "How are you?"
 message3 = "Great!"
 let ms_screentime = 900000
 let time_used = 0
-let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
+shutdown_by_time = false
 radio.setGroup(66)
+create_face()
 loops.everyInterval(60000, function () {
     time_used += 1
-    strip.showBarGraph(time_used, 255)
     if (time_used == 15) {
         basic.clearScreen()
         basic.showString("Locked due to screen time.")
+        shutdown_by_time = true
+        is_stopped = true
     } else {
     	
     }

@@ -26,7 +26,7 @@ def on_button_pressed_ab():
     if is_stopped == False:
         radio.send_string("" + message3 + " - " + username)
         datalogger.log(datalogger.create_cv("",
-                "" + username + " sent " + message3 + " to " + targetuser))
+                "" + username_full + " sent " + message3 + " to " + targetuser_full))
         basic.show_leds("""
             . . . . .
             . . . . #
@@ -48,7 +48,7 @@ def on_button_pressed_b():
     if is_stopped == False:
         radio.send_string("" + message2 + " - " + username)
         datalogger.log(datalogger.create_cv("",
-                "" + username + " sent " + message2 + " to " + targetuser))
+                "" + username_full + " sent " + message2 + " to " + targetuser_full))
         basic.show_leds("""
             . . . . .
             . . . . #
@@ -65,23 +65,54 @@ input.on_button_pressed(Button.B, on_button_pressed_b)
 def on_logo_pressed():
     global is_stopped
     if is_stopped == True:
-        basic.clear_screen()
-        is_stopped = False
+        if shutdown_by_time == True:
+            pass
+        else:
+            basic.clear_screen()
+            is_stopped = False
     else:
-        shutdown()
+        if shutdown_by_time == True:
+            pass
+        else:
+            shutdown()
 input.on_logo_event(TouchButtonEvent.PRESSED, on_logo_pressed)
 
 is_stopped = False
+shutdown_by_time = False
 message3 = ""
 message2 = ""
 message1 = ""
 targetuser = ""
 username = ""
-username = "Jo Hang Johann LO (3019011)"
-targetuser = "Josette Yeuk Kuk YAM (3120002)"
+targetuser_full = ""
+username_full = ""
+faces.show_face(faces.Eyes.OPEN, faces.Mouth.FLAT)
+teacher_mode = False
+username_full = "Jo Hang Johann LO (3019011)"
+targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
+username = "imtrollmastr"
+targetuser = "J2STARWARSGIRL"
 message1 = "Hi!"
 message2 = "How are you?"
 message3 = "Great!"
 ms_screentime = 900000
-teacher_mode = False
+time_used = 0
+shutdown_by_time = False
+troll_mode = False
 radio.set_group(66)
+if troll_mode == True:
+    pass
+else:
+    pass
+
+def on_every_interval():
+    global time_used, shutdown_by_time, is_stopped
+    time_used += 1
+    if time_used == 15:
+        basic.clear_screen()
+        basic.show_string("Locked due to screen time.")
+        shutdown_by_time = True
+        is_stopped = True
+    else:
+        pass
+loops.every_interval(60000, on_every_interval)
