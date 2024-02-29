@@ -70,6 +70,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
         } else {
             basic.clearScreen()
             is_stopped = false
+            create_face()
         }
     } else {
         if (shutdown_by_time == true) {
