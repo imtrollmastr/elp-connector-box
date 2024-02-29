@@ -1,7 +1,7 @@
 input.onButtonPressed(Button.A, function () {
     if (is_stopped == false) {
         radio.sendString("" + message1 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message1 + " to " + targetuser_full))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message1 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
         basic.showLeds(`
             . . . . .
             . . . . #
@@ -28,7 +28,7 @@ function shutdown () {
 input.onButtonPressed(Button.AB, function () {
     if (is_stopped == false) {
         radio.sendString("" + message3 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message3 + " to " + targetuser_full))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message3 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
         basic.showLeds(`
             . . . . .
             . . . . #
@@ -49,7 +49,7 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     if (is_stopped == false) {
         radio.sendString("" + message2 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message2 + " to " + targetuser_full))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message2 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
         basic.showLeds(`
             . . . . .
             . . . . #
@@ -93,9 +93,9 @@ username_full = "Jo Hang Johann LO (3019011)"
 targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
 username = "imtrollmastr"
 let targetuser = "J2STARWARSGIRL"
-message1 = "Hi!"
-message2 = "How are you?"
-message3 = "Great!"
+message1 = "Good morning!"
+message2 = "Good night!"
+message3 = "How are you?"
 let ms_screentime = 900000
 let time_used = 0
 shutdown_by_time = false
