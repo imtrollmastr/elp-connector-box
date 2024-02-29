@@ -18,7 +18,6 @@ input.onButtonPressed(Button.A, function () {
 })
 function create_face () {
     faces.showFace(faces.Eyes.Open, faces.Mouth.Grin)
-    faces.blink(5000)
 }
 function shutdown () {
     basic.clearScreen()
@@ -90,7 +89,7 @@ let targetuser_full = ""
 let username_full = ""
 let teacher_mode = false
 username_full = "Jo Hang Johann LO (3019011)"
-targetuser_full = "Yeuk Kuk Josette YAM (3120002)"
+targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
 username = "imtrollmastr"
 let targetuser = "J2STARWARSGIRL"
 message1 = "Good morning!"
@@ -111,4 +110,7 @@ loops.everyInterval(60000, function () {
     } else {
     	
     }
+})
+loops.everyInterval(3000, function () {
+    faces.wink(true)
 })
