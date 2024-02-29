@@ -2,42 +2,31 @@ input.onButtonPressed(Button.A, function () {
     if (is_stopped == false) {
         radio.sendString("" + message1 + " - " + username)
         datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message1 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
-        basic.showLeds(`
-            . . . . .
-            . . . . #
-            . . . # .
-            # . # . .
-            . # . . .
-            `)
-        basic.pause(1000)
         basic.clearScreen()
-        create_face()
+        create_faceV2("left")
     } else {
     	
     }
 })
-function create_face () {
-    faces.showFace(faces.Eyes.Open, faces.Mouth.Grin)
-}
 function shutdown () {
     basic.clearScreen()
     basic.showIcon(IconNames.No)
     is_stopped = true
 }
+function create_faceV2 (eye: string) {
+    faces.showFace(faces.Eyes.Open, faces.Mouth.Grin)
+    if (eye == "left") {
+        faces.wink(true, 750, false)
+    } else {
+        faces.wink(false, 750, false)
+    }
+}
 input.onButtonPressed(Button.AB, function () {
     if (is_stopped == false) {
         radio.sendString("" + message3 + " - " + username)
         datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message3 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
-        basic.showLeds(`
-            . . . . .
-            . . . . #
-            . . . # .
-            # . # . .
-            . # . . .
-            `)
-        basic.pause(1000)
         basic.clearScreen()
-        create_face()
+        create_faceV2("left")
     } else {
     	
     }
@@ -49,16 +38,8 @@ input.onButtonPressed(Button.B, function () {
     if (is_stopped == false) {
         radio.sendString("" + message2 + " - " + username)
         datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message2 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
-        basic.showLeds(`
-            . . . . .
-            . . . . #
-            . . . # .
-            # . # . .
-            . # . . .
-            `)
-        basic.pause(1000)
         basic.clearScreen()
-        create_face()
+        create_faceV2("right")
     } else {
     	
     }
@@ -70,7 +51,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
         } else {
             basic.clearScreen()
             is_stopped = false
-            create_face()
+            create_faceV2("left")
         }
     } else {
         if (shutdown_by_time == true) {
@@ -100,7 +81,8 @@ let ms_screentime = 900000
 let time_used = 0
 shutdown_by_time = false
 radio.setGroup(66)
-create_face()
+create_faceV2("left")
+led.setBrightness(45)
 loops.everyInterval(60000, function () {
     time_used += 1
     if (time_used == 15) {
@@ -111,7 +93,4 @@ loops.everyInterval(60000, function () {
     } else {
     	
     }
-})
-loops.everyInterval(3000, function () {
-    faces.wink(true)
 })
