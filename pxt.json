@@ -14,7 +14,8 @@
         "linebeacon": "github:pizayanz/pxt-linebeacon#v0.0.14",
         "pxt-faces": "github:grandpabond/pxt-faces#v1.1.0",
         "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
-        "servo": "*"
+        "servo": "*",
+        "radio-broadcast": "*"
     },
     "files": [
         "main.blocks",
