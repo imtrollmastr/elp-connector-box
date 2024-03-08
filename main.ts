@@ -1,7 +1,7 @@
 input.onButtonPressed(Button.A, function () {
     if (is_stopped == false) {
         radio.sendString("" + message1 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message1 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message1 + " to " + targetuser_full + " via " + ("" + control.deviceSerialNumber())))
         basic.clearScreen()
         create_faceV2("left")
     } else {
@@ -24,20 +24,35 @@ function create_faceV2 (eye: string) {
 input.onButtonPressed(Button.AB, function () {
     if (is_stopped == false) {
         radio.sendString("" + message3 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message3 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message3 + " to " + targetuser_full + " via " + ("" + control.deviceSerialNumber())))
         basic.clearScreen()
         create_faceV2("left")
     } else {
     	
     }
 })
+function setMessageType (authpass: string, messageType: string) {
+    if (authpass == "admin") {
+        if (messageType == "basic_messages") {
+        	
+        } else if (messageType == "morse_code") {
+            message1 = "."
+            message2 = "-"
+            message3 = "<space>"
+        } else {
+        	
+        }
+    } else {
+        basic.showString("Incorrect administrator password, authorization denied")
+    }
+}
 radio.onReceivedString(function (receivedString) {
     basic.showString(receivedString)
 })
 input.onButtonPressed(Button.B, function () {
     if (is_stopped == false) {
         radio.sendString("" + message2 + " - " + username)
-        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message2 + " to " + targetuser_full + " via " + control.deviceSerialNumber()))
+        datalogger.log(datalogger.createCV("", "" + username_full + " sent " + message2 + " to " + targetuser_full + " via " + ("" + control.deviceSerialNumber())))
         basic.clearScreen()
         create_faceV2("right")
     } else {
@@ -53,14 +68,13 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             is_stopped = false
             create_faceV2("left")
         }
+    } else if (shutdown_by_time == true) {
+    	
     } else {
-        if (shutdown_by_time == true) {
-        	
-        } else {
-            shutdown()
-        }
+        shutdown()
     }
 })
+let time_used = 0
 let is_stopped = false
 let shutdown_by_time = false
 let message3 = ""
@@ -78,11 +92,11 @@ message1 = "Good morning! / Good"
 message2 = "Good night! / Bad"
 message3 = "How are you?"
 let ms_screentime = 900000
-let time_used = 0
 shutdown_by_time = false
 radio.setGroup(66)
 create_faceV2("left")
-led.setBrightness(45)
+led.setBrightness(255)
+setMessageType("admin", "basic_messages")
 loops.everyInterval(60000, function () {
     time_used += 1
     if (time_used == 15) {

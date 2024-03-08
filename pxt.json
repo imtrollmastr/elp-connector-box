@@ -14,16 +14,13 @@
         "linebeacon": "github:pizayanz/pxt-linebeacon#v0.0.14",
         "pxt-faces": "github:grandpabond/pxt-faces#v1.1.0",
         "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
-        "servo": "*",
-        "jacdac": "github:microsoft/pxt-jacdac#v1.9.25"
+        "servo": "*"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
-        "main.py",
-        "jacdac.json",
-        "jacdac.ts"
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
