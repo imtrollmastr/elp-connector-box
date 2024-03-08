@@ -1,3 +1,6 @@
+datalogger.onLogFull(function () {
+    datalogger.deleteLog(datalogger.DeleteType.Fast)
+})
 input.onButtonPressed(Button.A, function () {
     if (is_stopped == false) {
         radio.sendString("" + message1 + " - " + username)
@@ -83,7 +86,6 @@ let message1 = ""
 let username = ""
 let targetuser_full = ""
 let username_full = ""
-let teacher_mode = false
 username_full = "Jo Hang Johann LO (3019011)"
 targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
 username = "imtrollmastr"
@@ -91,7 +93,7 @@ let targetuser = "J2STARWARSGIRL"
 message1 = "Good morning! / Good"
 message2 = "Good night! / Bad"
 message3 = "How are you?"
-let ms_screentime = 900000
+let ms_screentime = 150000
 shutdown_by_time = false
 radio.setGroup(66)
 create_faceV2("left")
