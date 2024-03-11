@@ -45,8 +45,16 @@ def setMessageType(authpass: str, messageType: str):
             message1 = "."
             message2 = "-"
             message3 = "<space>"
+        elif messageType == "teachermode":
+            message1 = "Where are you?"
+            message2 = "I'm at Zone 1!"
+            message3 = "My students are all here."
+        elif messageType == "disabled":
+            message1 = ""
+            message2 = ""
+            message3 = ""
         else:
-            pass
+            basic.show_string("Missing 'messageType' parameter.")
     else:
         basic.show_string("Incorrect administrator password, authorization denied")
 

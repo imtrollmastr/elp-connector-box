@@ -13,13 +13,15 @@
         "audio-recording": "*",
         "linebeacon": "github:pizayanz/pxt-linebeacon#v0.0.14",
         "pxt-faces": "github:grandpabond/pxt-faces#v1.1.0",
-        "radio-broadcast": "*"
+        "radio-broadcast": "*",
+        "pxt-esp8266_thingspeak": "github:alankrantas/pxt-esp8266_thingspeak#v0.0.3"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
-        "main.py"
+        "main.py",
+        "_locales/en-GB/README.md"
     ],
     "testFiles": [
         "test.ts"
