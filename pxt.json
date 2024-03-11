@@ -1,5 +1,5 @@
 {
-    "name": "ELP Connector Box ",
+    "name": "ELP Connector Box",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -13,10 +13,7 @@
         "audio-recording": "*",
         "linebeacon": "github:pizayanz/pxt-linebeacon#v0.0.14",
         "pxt-faces": "github:grandpabond/pxt-faces#v1.1.0",
-        "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
-        "servo": "*",
-        "radio-broadcast": "*",
-        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9"
+        "radio-broadcast": "*"
     },
     "files": [
         "main.blocks",
@@ -34,5 +31,16 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "blocksprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "whitelist": 0,
+                    "security_level": null
+                }
+            }
+        }
+    }
 }
