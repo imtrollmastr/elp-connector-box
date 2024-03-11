@@ -15,7 +15,8 @@
         "pxt-faces": "github:grandpabond/pxt-faces#v1.1.0",
         "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
         "servo": "*",
-        "radio-broadcast": "*"
+        "radio-broadcast": "*",
+        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9"
     },
     "files": [
         "main.blocks",

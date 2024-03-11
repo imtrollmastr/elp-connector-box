@@ -1,3 +1,7 @@
+def on_log_full():
+    datalogger.delete_log(datalogger.DeleteType.FAST)
+datalogger.on_log_full(on_log_full)
+
 def on_button_pressed_a():
     if is_stopped == False:
         radio.send_string("" + message1 + " - " + username)
@@ -31,6 +35,20 @@ def on_button_pressed_ab():
     else:
         pass
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
+
+def setMessageType(authpass: str, messageType: str):
+    global message1, message2, message3
+    if authpass == "admin":
+        if messageType == "basic_messages":
+            pass
+        elif messageType == "morse_code":
+            message1 = "."
+            message2 = "-"
+            message3 = "<space>"
+        else:
+            pass
+    else:
+        basic.show_string("Incorrect administrator password, authorization denied")
 
 def on_received_string(receivedString):
     basic.show_string(receivedString)
@@ -71,7 +89,6 @@ message1 = ""
 username = ""
 targetuser_full = ""
 username_full = ""
-teacher_mode = False
 username_full = "Jo Hang Johann LO (3019011)"
 targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
 username = "imtrollmastr"
@@ -79,11 +96,12 @@ targetuser = "J2STARWARSGIRL"
 message1 = "Good morning! / Good"
 message2 = "Good night! / Bad"
 message3 = "How are you?"
-ms_screentime = 900000
+ms_screentime = 150000
 shutdown_by_time = False
 radio.set_group(66)
 create_faceV2("left")
 led.set_brightness(255)
+setMessageType("admin", "basic_messages")
 
 def on_every_interval():
     global time_used, shutdown_by_time, is_stopped
@@ -96,17 +114,3 @@ def on_every_interval():
     else:
         pass
 loops.every_interval(60000, on_every_interval)
-def setMessageType(msg_type, authpass)
-    if authpass == "admin":
-        if msg_type == "basic_messages":
-            pass
-        elif msg_type == "morse":
-            global message1, message2, message3
-            message1 = "."
-            message2 = "-"
-            message3 = "nil"
-        else
-            pass
-    else
-        basic.show_string("Incorrect password, authorization denied.")
-setMessageType("morse", "admin")

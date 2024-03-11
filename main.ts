@@ -42,8 +42,16 @@ function setMessageType (authpass: string, messageType: string) {
             message1 = "."
             message2 = "-"
             message3 = "<space>"
+        } else if (messageType == "teachermode") {
+            message1 = "Where are you?"
+            message2 = "I'm at Zone 1!"
+            message3 = "My students are all here."
+        } else if (messageType == "disabled") {
+            message1 = ""
+            message2 = ""
+            message3 = ""
         } else {
-        	
+            basic.showString("Missing 'messageType' parameter.")
         }
     } else {
         basic.showString("Incorrect administrator password, authorization denied")
