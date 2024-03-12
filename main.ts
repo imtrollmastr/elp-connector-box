@@ -60,6 +60,15 @@ function setMessageType (authpass: string, messageType: string) {
             message1 = "This is a fire alarm. Please return to assembly point."
             message2 = "Lockdown has been activated. Please stay and hide in the room you are in."
             message3 = "This is a weather report alarm. Please stay in a room where it is safe, or follow a teacher to a safe room."
+        } else if (messageType == "EasterEgg") {
+            randomInt = randint(1, 3)
+            if (randomInt == 1) {
+                message1 = "You found the Easter Egg!"
+            } else if (randomInt == 2) {
+                message2 = "You found the Easter Egg!"
+            } else if (randomInt == 3) {
+                message3 = "You found the Easter Egg!"
+            }
         } else {
             basic.showString("Missing 'messageType' parameter.")
         }
@@ -96,6 +105,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     }
 })
 let time_used = 0
+let randomInt = 0
 let is_stopped = false
 let shutdown_by_time = false
 let message3 = ""
@@ -116,7 +126,7 @@ shutdown_by_time = false
 radio.setGroup(66)
 create_faceV2("left")
 led.setBrightness(255)
-setMessageType("admin", "basic_messages")
+setMessageType("admin", "EasterEgg")
 loops.everyInterval(60000, function () {
     time_used += 1
     if (time_used == 15) {
