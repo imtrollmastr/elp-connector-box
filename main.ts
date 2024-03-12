@@ -60,8 +60,6 @@ function setMessageType (authpass: string, messageType: string) {
             message1 = "This is a fire alarm. Please return to assembly point."
             message2 = "Lockdown has been activated. Please stay and hide in the room you are in."
             message3 = "This is a weather report alarm. Please stay in a room where it is safe, or follow a teacher to a safe room."
-        } else if (messageType == "EmergencyAlert") {
-        	
         } else {
             basic.showString("Missing 'messageType' parameter.")
         }
