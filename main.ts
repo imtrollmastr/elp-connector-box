@@ -1,13 +1,3 @@
-function startLoading (name: string, image: Image) {
-    basic.clearScreen()
-    image.showImage(0)
-    basic.pause(2000)
-    for (let index = 0; index < 1; index++) {
-        basic.showString("Loading...")
-        basic.showString("Loa")
-    }
-    basic.clearScreen()
-}
 datalogger.onLogFull(function () {
     datalogger.deleteLog(datalogger.DeleteType.Fast)
 })
@@ -46,6 +36,12 @@ input.onButtonPressed(Button.AB, function () {
 })
 function setMessageType (authpass: string, messageType: string) {
     if (authpass == "admin") {
+        // Events:
+        // - Basic messages (How are you?, Good morning!, Good night!)
+        // - Morse code (., -, <space>)
+        // - Teacher mode messaging (Where are you?, I'm at <room>, My students are all here!)
+        // - Disabled messaging
+        // - Emergency System (Fire alarm, lockdown activation message, weather report, etc.)
         if (messageType == "basic_messages") {
         	
         } else if (messageType == "morse_code") {
@@ -60,6 +56,12 @@ function setMessageType (authpass: string, messageType: string) {
             message1 = ""
             message2 = ""
             message3 = ""
+        } else if (messageType == "EmergencyAlert") {
+            message1 = "This is a fire alarm. Please return to assembly point."
+            message2 = "Lockdown has been activated. Please stay and hide in the room you are in."
+            message3 = "This is a weather report alarm. Please stay in a room where it is safe, or follow a teacher to a safe room."
+        } else if (messageType == "EmergencyAlert") {
+        	
         } else {
             basic.showString("Missing 'messageType' parameter.")
         }
@@ -104,13 +106,6 @@ let message1 = ""
 let username = ""
 let targetuser_full = ""
 let username_full = ""
-startLoading("J&J", images.createImage(`
-    . . . . .
-    . . # # #
-    . . . # .
-    . # # # .
-    . . . . .
-    `))
 username_full = "Jo Hang Johann LO (3019011)"
 targetuser_full = "Josette Yeuk Kuk YAM (3120002)"
 username = "imtrollmastr"
